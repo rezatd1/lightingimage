@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+.my-image {
+  filter: brightness(105%) contrast(130%) !important;
+
+}

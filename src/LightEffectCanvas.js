@@ -66,7 +66,10 @@ function LightEffectCanvas() {
                 const canvas = canvasRef.current;
                 const ctx = canvas.getContext('2d');
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
+                // Draw the image with color overlay and opacity
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'rgba(11, 8, 32, 0.63)'; // Color overlay
+                ctx.fillRect(0, 0, canvas.width, canvas.height); // Fill the entire canvas
             };
             img.src = e.target.result;
         };
@@ -77,13 +80,17 @@ function LightEffectCanvas() {
     return (
         <div>
             <input type="file" onChange={handleImageUpload} />
+            <div className='my-image-container'>
             <canvas
-                ref={canvasRef}
+                ref={canvasRef} 
+                className='my-image'
                 width={800} // Set your desired width
                 height={600} // Set your desired height
                 onClick={handleCanvasClick}
                 style={{ border: '1px solid black' }}
             />
+            </div>
+
         </div>
     );
 }
